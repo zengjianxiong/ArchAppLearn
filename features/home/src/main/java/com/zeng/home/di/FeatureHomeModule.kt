@@ -1,0 +1,12 @@
+package com.zeng.home.di
+
+import com.zeng.home.HomeViewModel
+import com.zeng.home.domain.GetTopUsersUseCase
+import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.dsl.module
+
+
+val featureHomeModule = module {
+    factory { GetTopUsersUseCase(get()) }
+    viewModel { HomeViewModel(get(), get()) }
+}

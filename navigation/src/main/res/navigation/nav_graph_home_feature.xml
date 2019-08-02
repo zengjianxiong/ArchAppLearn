@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/nav_graph_home_feature"
+            app:startDestination="@id/homeFragment">
+
+    <fragment android:name="com.zeng.home.HomeFragment"
+              android:id="@+id/homeFragment"
+              android:label="ArchApp">
+        <action android:id="@+id/action_homeFragment_to_detailFragment"
+                app:destination="@id/navigation">
+            <argument android:name="login" app:argType="string"/>
+        </action>
+    </fragment>
+
+    <navigation android:id="@+id/navigation" app:startDestination="@id/nav_graph_detail_feature">
+        <include app:graph="@navigation/nav_graph_detail_feature"/>
+    </navigation>
+
+</navigation>

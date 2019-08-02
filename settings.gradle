@@ -1,0 +1,3 @@
+include ':app', ':common', ':navigation',
+        ':data:local', ':data:model', ':data:remote', ':data:repository',
+        ':features:detail', ':features:home'
