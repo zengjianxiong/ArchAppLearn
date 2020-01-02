@@ -8,10 +8,10 @@ import com.zeng.repository.UsersRepository
 import com.zeng.repository.utils.Resource
 
 class GetUserDetailUseCase(private val repository: UsersRepository) {
-    suspend operator fun invoke(forceRefresh: Boolean = false, login: String): LiveData<Resource<User>> {
-        return Transformations.map(repository.getUserDetailWithCache(forceRefresh, login)) {
-            it
-        }
-    }
+//    suspend operator fun invoke(forceRefresh: Boolean = false, login: String): LiveData<Resource<User>> {
+//        return Transformations.map(repository.getUserDetailWithCache(forceRefresh, login)) {
+//            it
+//        }
+//    }
 
 }

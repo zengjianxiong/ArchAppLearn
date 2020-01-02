@@ -24,27 +24,27 @@ class DetailViewModel(
     private val _isLoading = MutableLiveData<Resource.Status>()
     val isLoading: LiveData<Resource.Status> get() = _isLoading
 
-    fun reloadDataWhenUserRefreshes() = getUserDetail(true)
+//    fun reloadDataWhenUserRefreshes() = getUserDetail(true)
 
-    fun loadDataWhenActivityStarts(login: String) {
-        argsLogin = login
-        getUserDetail(false)
-    }
+//    fun loadDataWhenActivityStarts(login: String) {
+//        argsLogin = login
+//        getUserDetail(false)
+//    }
 
     fun userClicksOnAvatarImage(user: User) {
         Log.d("T", user.toString())
         navigate(DetailFragmentDirections.actionDetailFragmentToImageDetailFragment(user.avatarUrl))
     }
 
-    private fun getUserDetail(forceRefresh: Boolean) = viewModelScope.launch(dispatchers.main) {
-        _user.removeSource(userSource)
-        withContext(dispatchers.io) {
-            userSource = getUserDetailUseCase(forceRefresh = forceRefresh, login = argsLogin)
-        }
-        _user.addSource(userSource) {
-            _user.value = it.data
-            _isLoading.value = it.status
-            if (it.status == Resource.Status.ERROR) _snackbarError.value = Event(R.string.an_error_happened)
-        }
-    }
+//    private fun getUserDetail(forceRefresh: Boolean) = viewModelScope.launch(dispatchers.main) {
+//        _user.removeSource(userSource)
+//        withContext(dispatchers.io) {
+//            userSource = getUserDetailUseCase(forceRefresh = forceRefresh, login = argsLogin)
+//        }
+//        _user.addSource(userSource) {
+//            _user.value = it.data
+//            _isLoading.value = it.status
+//            if (it.status == Resource.Status.ERROR) _snackbarError.value = Event(R.string.an_error_happened)
+//        }
+//    }
 }

@@ -4,4 +4,5 @@ dependencies {
     implementation KotlinLibraries.kotlin
     implementation Libraries.gson
     implementation Libraries.roomRunTime
+    implementation Libraries.debugDb
 }

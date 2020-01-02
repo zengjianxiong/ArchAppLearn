@@ -35,7 +35,7 @@ class DetailFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        viewModel.loadDataWhenActivityStarts(args.login)
+//        viewModel.loadDataWhenActivityStarts(args.login)
 
 
     }

@@ -21,7 +21,7 @@ dependencies {
     implementation Libraries.koin
     implementation Libraries.koinViewModel
     // TEST
-    androidTestImplementation TestLibraries.androidTestRunner
+//    androidTestImplementation TestLibraries.androidTestRunner
     androidTestImplementation TestLibraries.junit
     androidTestImplementation TestLibraries.koin
     androidTestImplementation TestLibraries.archCoreTest

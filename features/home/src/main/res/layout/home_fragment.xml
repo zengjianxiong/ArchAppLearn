@@ -58,7 +58,7 @@
                     android:id="@+id/fragment_home_rv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:items="@{viewmodel.users}"
+
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 

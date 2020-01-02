@@ -7,6 +7,6 @@ import com.zeng.remote.di.createRemoteModule
 import com.zeng.repository.di.repositoryModule
 
 val appCompontents = listOf(
-    createRemoteModule("https://api.github.com/"), repositoryModule, localModule,
+    createRemoteModule("http://appapitest.indoorbuy.com/"), repositoryModule, localModule,
     featureHomeModule, featureDetailModule
 )

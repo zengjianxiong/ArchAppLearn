@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.zeng.model.Banner
 import com.zeng.model.User
 import com.zeng.repository.utils.Resource
 
@@ -15,7 +16,7 @@ object HomeBinding {
 
     @BindingAdapter("app:showWhenEmptyList")
     @JvmStatic
-    fun showMessageErrorWhenEmptyList(view: View, resource: Resource<List<User>>?) {
+    fun showMessageErrorWhenEmptyList(view: View, resource: Resource<List<Banner.Item>>?) {
         if (resource != null) {
             view.visibility = if (resource.status == Resource.Status.ERROR
                 && resource.data != null

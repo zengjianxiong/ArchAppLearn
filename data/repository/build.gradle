@@ -2,14 +2,22 @@ apply plugin: 'com.android.library'
 apply from: '../../android_commons.gradle'
 
 dependencies {
+    implementation Libraries.gson
+    implementation Libraries.retrofit
 // MODULES
     implementation project(Modules.remote)
     implementation project(Modules.local)
     api project(Modules.model)
     // ANDROID
     implementation KotlinLibraries.kotlinCoroutineCore
+    implementation KotlinLibraries.kotlinxCoroutineRx2
     implementation AndroidLibraries.kotlinCoroutineAndroid
     implementation AndroidLibraries.lifecycleExtensions
+
+    //Rx
+    implementation Rx2Libraries.rxjava
+    implementation Rx2Libraries.rxandroid
+
     // KOIN
     implementation Libraries.koin
     implementation Libraries.koinViewModel

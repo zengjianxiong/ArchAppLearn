@@ -1,20 +1,22 @@
 package com.zeng.remote
 
-import com.zeng.model.ApiResult
+
+import com.zeng.model.Banner
+import com.zeng.model.BaseApiResult
 import com.zeng.model.User
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
+
+import retrofit2.http.*
 
 interface ApiService {
-    @GET("search/users")
-    suspend fun fetchTopUsersAsync(
-        @Query("q") query: String = "PhilippeB",
-        @Query("sort") sort: String = "followers"
-    ): ApiResult<User>
+//    @GET("search/users")
+//    suspend fun fetchTopUsersAsync(
+//        @Query("q") query: String = "PhilippeB",
+//        @Query("sort") sort: String = "followers"
+//    ): ApiResult<User>
 
 
-    @GET("users/{login}")
-    suspend fun fetchUserDetailsAsync(@Path("login") login: String): User
+    @POST("banner/list")
+    @JvmSuppressWildcards
+    suspend fun fetchUserDetailsAsync(@QueryMap map: Map<String, Any>): BaseApiResult<Banner>
 
 }

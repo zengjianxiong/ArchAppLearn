@@ -12,7 +12,10 @@ private const val DATABASE = "DATABASE"
 val localModule = module {
 
     single(StringQualifier(DATABASE)) { ArchAppDatabase.buildDatabase(androidContext()) }
-    factory { (get(StringQualifier(DATABASE)) as ArchAppDatabase).userDao() }
+    factory {
+        (get(StringQualifier(DATABASE)) as ArchAppDatabase).userDao()
+        (get(StringQualifier(DATABASE)) as ArchAppDatabase).bannerDao()
+    }
 
 
 }

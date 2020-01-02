@@ -1,16 +1,16 @@
 package com.zeng.remote
 
 
-import com.zeng.model.ApiResult
-import com.zeng.model.User
+import com.zeng.model.Banner
+import com.zeng.model.BaseApiResult
 
 class UserDatasource(private val apiService: ApiService) {
-   suspend fun fetchTopUsersAsync(): ApiResult<User> {
-        return apiService.fetchTopUsersAsync()
-    }
+//   suspend fun fetchTopUsersAsync(): ApiResult<User> {
+//        return apiService.fetchTopUsersAsync()
+//    }
 
-   suspend fun fetchUserDetailsAsync(login: String): User {
-        return  apiService.fetchUserDetailsAsync(login)
+   suspend fun fetchBannerAsync(map: Map<String,Any>): BaseApiResult<Banner> {
+        return  apiService.fetchUserDetailsAsync(map)
     }
 
 

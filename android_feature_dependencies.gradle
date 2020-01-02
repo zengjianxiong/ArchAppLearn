@@ -14,7 +14,7 @@ dependencies {
     implementation Libraries.koin
     implementation Libraries.koinViewModel
     // TEST
-    androidTestImplementation TestLibraries.androidTestRunner
+//    androidTestImplementation TestLibraries.androidTestRunner
     androidTestImplementation TestLibraries.junit
 //    androidTestImplementation project(Modules.commonTest)
     androidTestImplementation TestLibraries.mockkAndroid
@@ -23,7 +23,7 @@ dependencies {
     androidTestImplementation TestLibraries.espressoContrib
     androidTestImplementation TestLibraries.koin
     androidTestImplementation TestLibraries.archCoreTest
-    testImplementation TestLibraries.androidTestRunner
+//    testImplementation TestLibraries.androidTestRunner
     testImplementation TestLibraries.junit
     testImplementation TestLibraries.mockk
     testImplementation TestLibraries.archCoreTest
