@@ -37,7 +37,7 @@ fun createRemoteModule(baseUrl: String) = module {
                     val builder = request.url.newBuilder()
                     builder.addQueryParameter("mac", "ffffffffb3f2378cffffffffef05ac4a")
                     builder.addQueryParameter("version_code", "3.2.94")
-                    builder.addQueryParameter("client", "android")
+//                    builder.addQueryParameter("client", "android")
                     builder.addQueryParameter("version", 3294.toString())
                     builder.addQueryParameter(
                         "token",

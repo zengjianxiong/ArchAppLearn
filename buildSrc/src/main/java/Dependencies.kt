@@ -60,6 +60,7 @@ object Versions {
 
     val rxjava = "2.2.16"
     val rxandroid = "2.1.1"
+    val rxlifecycle="3.1.0"
 }
 
 object Libraries {
@@ -105,6 +106,25 @@ object AndroidLibraries {
     val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
     val navigation = "androidx.navigation:navigation-ui-ktx:${Versions.nav}"
     val navigationFrag = "androidx.navigation:navigation-fragment-ktx:${Versions.nav}"
+}
+
+
+object Rxlifecycle {
+    val rxlifecycle = "com.trello.rxlifecycle3:rxlifecycle:${Versions.rxlifecycle}"
+    // If you want to bind to Android-specific lifecycles
+    val rxlifecycleAndroid = "com.trello.rxlifecycle3:rxlifecycle-android:${Versions.rxlifecycle}"
+    // If you want pre-written Activities and Fragments you can subclass as providers
+    val rxlifecycleComponents = "com.trello.rxlifecycle3:rxlifecycle-components:${Versions.rxlifecycle}"
+    // If you want pre-written support preference Fragments you can subclass as providers
+    val rxlifecycleComponentsPreference =
+        "com.trello.rxlifecycle3:rxlifecycle-components-preference:${Versions.rxlifecycle}"
+    // If you want to use Android Lifecycle for providers
+    val rxlifecycleAndroidLifecycle = "com.trello.rxlifecycle3:rxlifecycle-android-lifecycle:${Versions.rxlifecycle}"
+    // If you want to use Kotlin syntax
+    val rxlifecycleKotlin = "com.trello.rxlifecycle3:rxlifecycle-kotlin:${Versions.rxlifecycle}"
+    // If you want to use Kotlin syntax with Android Lifecycle
+    val rxlifecycleAndroidLifecycleKotlin =
+        "com.trello.rxlifecycle3:rxlifecycle-android-lifecycle-kotlin:${Versions.rxlifecycle}"
 }
 
 object TestLibraries {

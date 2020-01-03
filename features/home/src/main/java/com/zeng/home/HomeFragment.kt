@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.trello.rxlifecycle3.android.lifecycle.kotlin.bindToLifecycle
 import com.zeng.common.base.BaseFragment
 import com.zeng.common.base.BaseViewModel
 import com.zeng.home.databinding.HomeFragmentBinding

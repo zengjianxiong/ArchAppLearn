@@ -11,6 +11,9 @@ dependencies {
     implementation Rx2Libraries.rxjava
     implementation Rx2Libraries.rxandroid
 
+    implementation Rxlifecycle.rxlifecycle
+    implementation Rxlifecycle.rxlifecycleAndroidLifecycleKotlin
+
     // ANDROID
     implementation AndroidLibraries.appCompat
     implementation AndroidLibraries.coreKtx
