@@ -9,6 +9,8 @@ import com.zeng.model.BaseApiResult
 import com.zeng.remote.UserDatasource
 import com.zeng.repository.utils.NetworkBoundResource
 import com.zeng.repository.utils.Resource
+import com.zeng.repository.utils.exception.ErrorCodeManager
+import okhttp3.internal.http2.ErrorCode
 
 
 interface UsersRepository {
@@ -31,7 +33,7 @@ class UsersRepositoryImpl(
         return object : NetworkBoundResource<List<Banner.Item>, BaseApiResult<Banner>>() {
 
             override fun processResponse(response: BaseApiResult<Banner>) =
-                response.data.list
+                ErrorCodeManager<Banner>().getError(response).list
 
             override suspend fun saveCallResults(items: List<Banner.Item>) =
                 bannerDao.save(items)

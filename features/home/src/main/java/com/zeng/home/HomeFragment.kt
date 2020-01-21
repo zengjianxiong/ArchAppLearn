@@ -2,10 +2,11 @@ package com.zeng.home
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.trello.rxlifecycle3.android.lifecycle.kotlin.bindToLifecycle
+import androidx.lifecycle.Observer
 import com.zeng.common.base.BaseFragment
 import com.zeng.common.base.BaseViewModel
 import com.zeng.home.databinding.HomeFragmentBinding
@@ -16,9 +17,10 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : BaseFragment() {
 
+
+    private val TAG=HomeFragment::class.java.name
     private val viewModel: HomeViewModel by viewModel()
     private lateinit var binding: HomeFragmentBinding
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -34,6 +36,14 @@ class HomeFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         configureRecyclerView()
+
+        viewModel.users.observe(viewLifecycleOwner, Observer {
+            it?.data?.let {list->
+                for(item in list){
+                    Log.d(TAG,item.toString())
+                }
+            }
+        })
     }
 
     private fun configureRecyclerView() {

@@ -19,6 +19,7 @@ abstract class BaseFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         observeNavigation(getViewModel());
+        getViewModel().lifecycleOwner = viewLifecycleOwner
         setupSnackbar(this, getViewModel().snackbarError, Snackbar.LENGTH_LONG)
     }
 
@@ -26,7 +27,10 @@ abstract class BaseFragment : Fragment() {
         viewModel.navigation.observe(viewLifecycleOwner, Observer {
             it?.getContentIfNotHandled()?.let { command ->
                 when (command) {
-                    is NavigationCommand.To -> findNavController().navigate(command.directions, getExtras())
+                    is NavigationCommand.To -> findNavController().navigate(
+                        command.directions,
+                        getExtras()
+                    )
                     is NavigationCommand.Back -> findNavController().navigateUp()
                 }
             }
@@ -38,7 +42,11 @@ abstract class BaseFragment : Fragment() {
 
     abstract fun getViewModel(): BaseViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 }

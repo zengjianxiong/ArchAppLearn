@@ -1,11 +1,12 @@
 package com.zeng.detail
 
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel;
 import com.zeng.common.base.BaseViewModel
 
-class DetailImageViewModel : BaseViewModel() {
+class DetailImageViewModel(lifecycleOwner: LifecycleOwner) : BaseViewModel(lifecycleOwner) {
 
     // PRIVATE DATA
     private val _imageUrl = MutableLiveData<String>()

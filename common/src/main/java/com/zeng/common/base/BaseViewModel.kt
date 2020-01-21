@@ -1,17 +1,17 @@
 package com.zeng.common.base
 
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import androidx.navigation.NavDirections
 import com.zeng.common.utils.Event
 import com.zeng.navigation.NavigationCommand
 
-abstract class BaseViewModel : ViewModel() {
+abstract class BaseViewModel(var lifecycleOwner: LifecycleOwner) : ViewModel() {
 
-    protected val _snackbarError = MutableLiveData<Event<Int>>()
-    val snackbarError: LiveData<Event<Int>>
+
+
+
+    protected val _snackbarError = MutableLiveData<Event<Any>>()
+    val snackbarError: LiveData<Event<Any>>
         get() = _snackbarError
 
     private val _navigation = MutableLiveData<Event<NavigationCommand>>()
