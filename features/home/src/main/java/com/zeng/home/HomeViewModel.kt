@@ -3,6 +3,7 @@ package com.zeng.home
 import android.util.Log
 import androidx.lifecycle.*
 import com.trello.rxlifecycle3.android.lifecycle.kotlin.bindUntilEvent
+import com.zeng.common.base.BaseFragment
 import com.zeng.common.base.BaseViewModel
 import com.zeng.common.utils.Event
 import com.zeng.home.domain.GetTopUsersUseCase
@@ -19,10 +20,9 @@ import kotlinx.coroutines.withContext
 
 class HomeViewModel(
     val getTopUsersUseCase: GetTopUsersUseCase,
-    val dispatchers: AppDispatchers,
-    lifecycleOwner: LifecycleOwner
+    val dispatchers: AppDispatchers
 ) :
-    BaseViewModel(lifecycleOwner) {
+    BaseViewModel() {
 
     private val _users = MediatorLiveData<Resource<List<Banner.Item>>>()
     val users: LiveData<Resource<List<Banner.Item>>>
@@ -30,9 +30,9 @@ class HomeViewModel(
 
     private var userResource: LiveData<Resource<List<Banner.Item>>> = MutableLiveData()
 
-    init {
-        getUsers(false)
-    }
+//    init {
+//        getUsers(false)
+//    }
 
     fun userRefreshesItems() = getUsers(true)
 
@@ -69,7 +69,7 @@ class HomeViewModel(
                     if (it.status == Resource.Status.ERROR) {
                         _snackbarError.value =
                             Event(ExceptionEngine.handleException(it.throwable).msg)
-                      Log.d("error",ExceptionEngine.handleException(it.throwable).msg)
+                        Log.d("error", ExceptionEngine.handleException(it.throwable).msg)
                     }
                 }
             }, {

@@ -15,6 +15,9 @@ val localModule = module {
     factory {
         (get(StringQualifier(DATABASE)) as ArchAppDatabase).userDao()
         (get(StringQualifier(DATABASE)) as ArchAppDatabase).bannerDao()
+//        (get(StringQualifier(DATABASE)) as ArchAppDatabase).dogAndOwnerDao()
+//        (get(StringQualifier(DATABASE)) as ArchAppDatabase).dogDao()
+//        (get(StringQualifier(DATABASE)) as ArchAppDatabase).ownerDao()
     }
 
 

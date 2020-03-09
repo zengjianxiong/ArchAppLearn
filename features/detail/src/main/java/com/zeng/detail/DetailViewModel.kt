@@ -13,8 +13,8 @@ import kotlinx.coroutines.withContext
 
 class DetailViewModel(
     private val getUserDetailUseCase: GetUserDetailUseCase,
-    private val dispatchers: AppDispatchers, lifecycleOwner: LifecycleOwner
-) : BaseViewModel(lifecycleOwner) {
+    private val dispatchers: AppDispatchers
+) : BaseViewModel() {
 
     private lateinit var argsLogin: String
     private var userSource: LiveData<Resource<User>> = MutableLiveData()

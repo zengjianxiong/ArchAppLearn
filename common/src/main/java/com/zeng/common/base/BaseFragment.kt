@@ -15,11 +15,11 @@ import com.zeng.common.extension.setupSnackbar
 import com.zeng.navigation.NavigationCommand
 
 abstract class BaseFragment : Fragment() {
-
+    
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        observeNavigation(getViewModel());
         getViewModel().lifecycleOwner = viewLifecycleOwner
+        observeNavigation(getViewModel());
         setupSnackbar(this, getViewModel().snackbarError, Snackbar.LENGTH_LONG)
     }
 

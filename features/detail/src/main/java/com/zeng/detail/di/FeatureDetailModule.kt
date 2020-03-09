@@ -11,8 +11,7 @@ import org.koin.dsl.module
 
 val featureDetailModule = module {
     factory { GetUserDetailUseCase(get()) }
-    factory(StringQualifier(value = "DETAILIMAGEFRAGMENT")) { DetailImageFragment() }
-    factory(StringQualifier(value = "DETAILFRAGMENT")) { DetailFragment() }
-    viewModel { DetailViewModel(get(), get(),get(StringQualifier(value = "DETAILFRAGMENT"))) }
-    viewModel { DetailImageViewModel(get(StringQualifier(value = "DETAILIMAGEFRAGMENT"))) }
+
+    viewModel { DetailViewModel(get(), get()) }
+    viewModel { DetailImageViewModel() }
 }

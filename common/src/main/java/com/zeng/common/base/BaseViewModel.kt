@@ -5,9 +5,9 @@ import androidx.navigation.NavDirections
 import com.zeng.common.utils.Event
 import com.zeng.navigation.NavigationCommand
 
-abstract class BaseViewModel(var lifecycleOwner: LifecycleOwner) : ViewModel() {
+abstract class BaseViewModel() : ViewModel() {
 
-
+    lateinit var lifecycleOwner: LifecycleOwner
 
 
     protected val _snackbarError = MutableLiveData<Event<Any>>()

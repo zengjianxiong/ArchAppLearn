@@ -9,7 +9,7 @@ import org.koin.dsl.module
 
 
 val featureHomeModule = module {
-    factory { GetTopUsersUseCase(get())}
-    factory(StringQualifier(value = "HOMEFRAGMENT")) { HomeFragment() }
-    viewModel { HomeViewModel(get(), get(),get(StringQualifier(value = "HOMEFRAGMENT"))) }
+    factory { GetTopUsersUseCase(get()) }
+
+    viewModel { HomeViewModel(get(), get()) }
 }
