@@ -12,7 +12,7 @@ data class Banner(
     data class Item(
         @PrimaryKey
         @SerializedName("img_url")
-        var imgUrl: String,
+        var imgUrl: Int,
         @SerializedName("jump_type")
         val jumpType: Int,
         @SerializedName("jump_value")

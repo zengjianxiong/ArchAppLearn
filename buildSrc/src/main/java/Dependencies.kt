@@ -25,7 +25,7 @@ object Releases {
 }
 
 object Versions {
-    const val kotlin = "1.3.71"
+    const val kotlin = "1.3.72"
     const val gradle = "3.6.1"
     const val compileSdk = 28
     const val minSdk = 23
@@ -111,6 +111,8 @@ object AndroidLibraries {
     const val lifecycleViewModel =
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
     const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
+    const val lifecycleLivedata = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
+
     const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
     const val navigation = "androidx.navigation:navigation-ui-ktx:${Versions.nav}"
     const val navigationFrag = "androidx.navigation:navigation-fragment-ktx:${Versions.nav}"

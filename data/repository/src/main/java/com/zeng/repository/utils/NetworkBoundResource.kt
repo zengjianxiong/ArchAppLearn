@@ -15,38 +15,38 @@ abstract class NetworkBoundResource<ResultType, RequestType> {
     private val supervisorJob = SupervisorJob()
 
 
-
-
     suspend fun build(): NetworkBoundResource<ResultType, RequestType> {
         withContext(Dispatchers.Main) {
             result.value =
                 Resource.loading(null)
         }
         CoroutineScope(coroutineContext).launch(supervisorJob) {
-            val dbResult = loadFromDb()
+
             when (cachingStrategy()) {
                 LOAD_CACHE_ONLY -> {
                     //不使用网络，只读取本地缓存数据。
+                    val dbResult = loadFromDb()
                     Log.d(NetworkBoundResource::class.java.name, "Return data from local database")
                     setValue(Resource.success(dbResult))
                 }
                 LOAD_NO_CACHE -> {
                     //不使用缓存，只从网络获取数据。
                     try {
-                        fetchFromNetwork(dbResult)
+                        fetchFromNetwork(null)
                     } catch (e: Exception) {
                         Log.e("NetworkBoundResource", "An error happened: $e")
-                        setValue(Resource.error(loadFromDb(), e))
+                        setValue(Resource.error(null, e))
                     }
                 }
                 LOAD_CACHE_ELSE_NETWORK -> {
                     //只要本地有，都使用缓存中的数据。本地没有缓存时才从网络上获取。
+                    val dbResult = loadFromDb()
                     if (shouldFetch(dbResult)) {
                         try {
-                            fetchFromNetwork(dbResult)
+                            fetchFromNetwork(null)
                         } catch (e: Exception) {
                             Log.e("NetworkBoundResource", "An error happened: $e")
-                            setValue(Resource.error(loadFromDb(), e))
+                            setValue(Resource.error(dbResult, e))
                         }
                     } else {
                         Log.d(
@@ -58,6 +58,7 @@ abstract class NetworkBoundResource<ResultType, RequestType> {
                 }
                 LOAD_CACHE -> {
                     //先使用缓存中的数据，再从网络上获取。
+                    val dbResult = loadFromDb()
                     Log.d(NetworkBoundResource::class.java.name, "Return data from local database")
                     setValue(Resource.success(dbResult))
 
@@ -65,16 +66,17 @@ abstract class NetworkBoundResource<ResultType, RequestType> {
                         fetchFromNetwork(dbResult)
                     } catch (e: Exception) {
                         Log.e("NetworkBoundResource", "An error happened: $e")
-                        setValue(Resource.error(loadFromDb(), e))
+                        setValue(Resource.error(dbResult, e))
                     }
 
                 }
                 else -> {
+                    val dbResult = loadFromDb()
                     try {
                         fetchFromNetwork(dbResult)
                     } catch (e: Exception) {
                         Log.e("NetworkBoundResource", "An error happened: $e")
-                        setValue(Resource.error(loadFromDb(), e))
+                        setValue(Resource.error(dbResult, e))
                     }
                 }
 

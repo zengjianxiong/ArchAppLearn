@@ -9,7 +9,7 @@ import com.zeng.model.Dog
 import com.zeng.model.Owner
 import com.zeng.model.User
 
-@Database(entities = [User::class, Banner.Item::class, Dog::class, Owner::class], version = 1)
+@Database(entities = [User::class, Banner.Item::class, Dog::class, Owner::class], version = 2)
 @TypeConverters(Converters::class)
 abstract class ArchAppDatabase : RoomDatabase() {
 
@@ -23,6 +23,7 @@ abstract class ArchAppDatabase : RoomDatabase() {
     companion object {
         fun buildDatabase(context: Context) =
             Room.databaseBuilder(context, ArchAppDatabase::class.java, "ArchAppLearn.db")
+                .fallbackToDestructiveMigration()
                 .build()
     }
 }
